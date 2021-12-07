@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -20,7 +22,10 @@ public class ProdutoModel {
 	private @NotBlank String plataforma;
 	private @NotBlank boolean popular;
 	private @NotBlank boolean online;
-	private @NotBlank Long fk_categoria;
+	
+	@ManyToOne
+	@JoinColumn (name = "fk_categoria")
+	private CategoriaModel categoria;
 
 	public Long getIdProduto() {
 		return idProduto;
@@ -94,12 +99,15 @@ public class ProdutoModel {
 		this.online = online;
 	}
 
-	public Long getFk_categoria() {
-		return fk_categoria;
+	public CategoriaModel getCategoria() {
+		return categoria;
 	}
 
-	public void setFk_categoria(Long fk_categoria) {
-		this.fk_categoria = fk_categoria;
+	public void setCategoria(CategoriaModel categoria) {
+		this.categoria = categoria;
 	}
+
+	
+	
 
 }

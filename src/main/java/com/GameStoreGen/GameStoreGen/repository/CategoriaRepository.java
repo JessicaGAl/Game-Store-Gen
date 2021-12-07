@@ -6,9 +6,9 @@ package com.GameStoreGen.GameStoreGen.repository;
     import org.springframework.stereotype.Repository;
     import com.GameStoreGen.GameStoreGen.models.CategoriaModel;
     
-	@Repository
-	public interface CategoriaRepository extends JpaRepository <CategoriaModel, Long>{
-		 public List<CategoriaModel> findAllByDescricaoContainingIgnoreCase(String algoacolocar);
+@Repository
+public interface CategoriaRepository extends JpaRepository <CategoriaModel, Long>{
+	 public List<CategoriaModel> findAllByDescricaoContainingIgnoreCase(String descricao);
 
 	}
 

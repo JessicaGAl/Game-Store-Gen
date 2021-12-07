@@ -15,23 +15,22 @@ import javax.validation.constraints.Size;
 public class CategoriaModel {
 
 	@Id
-	@NotBlank
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;	
+	private Long id;	
 	
-@NotBlank
+	@NotBlank
 private String genero;
 
-@NotBlank
+
 @Size (min =0,max = 250)
 private String descricao;
 
 	
-	public long getId() {
+	public Long getId() {
 	return id;
 	}
 	
-	public void setId(long id) {
+	public void setId(Long id) {
 	this.id = id;
 	}
 

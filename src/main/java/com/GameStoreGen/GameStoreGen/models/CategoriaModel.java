@@ -13,7 +13,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-
 @Entity
 @Table(name = "tbl_Categoria")
 
@@ -21,41 +20,39 @@ public class CategoriaModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;	
-	
+	private Long id;
+
 	@NotBlank
-private String genero;
+	private String genero;
 
+	@Size(min = 0, max = 250)
+	private String descricao;
 
-@Size (min =0,max = 250)
-private String descricao;
-
-@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
-private List<ProdutoModel> produtosCriados = new ArrayList<>();
-
+	@OneToMany(mappedBy = "categoria" ,cascade = CascadeType.REMOVE)
+	private List<ProdutoModel> produtosCriados = new ArrayList<>();
 	
 	public Long getId() {
-	return id;
+		return id;
 	}
-	
+
 	public void setId(Long id) {
-	this.id = id;
+		this.id = id;
 	}
 
 	public String getGenero() {
-	return genero;
+		return genero;
 	}
 
-	public void setGenero(String genero) {	
-	this.genero = genero;
+	public void setGenero(String genero) {
+		this.genero = genero;
 	}
-	
+
 	public String getDescricao() {
-	return descricao;
+		return descricao;
 	}
 
 	public void setDescricao(String descricao) {
-	this.descricao = descricao;
+		this.descricao = descricao;
 	}
 
 	public List<ProdutoModel> getProdutosCriados() {
@@ -66,8 +63,4 @@ private List<ProdutoModel> produtosCriados = new ArrayList<>();
 		this.produtosCriados = produtosCriados;
 	}
 
-
-
-
 }
-

@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tbl_produto")
@@ -16,17 +17,17 @@ public class ProdutoModel {
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idProduto;
 	private @NotBlank String titulo;
 	private @NotBlank String sinopse;
-	private @NotBlank Double preco;
-	private @NotBlank boolean estoque;
-	private @NotBlank int idade;
+	private @NotNull double preco;
+	private @NotNull boolean estoque;
+	private @NotNull int idade;
 	private @NotBlank String plataforma;
-	private @NotBlank boolean popular;
-	private @NotBlank boolean online;
+	private @NotNull boolean popular;
+	private @NotNull boolean online;
 	
 	@ManyToOne
-	@JoinColumn (name = "fk_categoria")
-	private CategoriaModel categoria;
-
+    @JoinColumn (name = "fk_categoria")
+    private CategoriaModel categoria;
+	
 	public Long getIdProduto() {
 		return idProduto;
 	}
@@ -51,11 +52,11 @@ public class ProdutoModel {
 		this.sinopse = sinopse;
 	}
 
-	public Double getPreco() {
+	public double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(Double preco) {
+	public void setPreco(double preco) {
 		this.preco = preco;
 	}
 
@@ -99,15 +100,13 @@ public class ProdutoModel {
 		this.online = online;
 	}
 
+
 	public CategoriaModel getCategoria() {
 		return categoria;
 	}
 
 	public void setCategoria(CategoriaModel categoria) {
 		this.categoria = categoria;
-	}
-
-	
-	
+	}	
 
 }

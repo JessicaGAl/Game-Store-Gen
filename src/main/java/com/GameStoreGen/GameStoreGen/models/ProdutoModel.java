@@ -10,6 +10,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "tbl_produto")
 public class ProdutoModel {
@@ -25,6 +27,7 @@ public class ProdutoModel {
 	private @NotNull boolean online;
 	
 	@ManyToOne
+	@JsonIgnoreProperties("produto")
     @JoinColumn (name = "fk_categoria")
     private CategoriaModel categoria;
 	
